@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>powershell generator - edeltech</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="icon" href="asset/icon.png">
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="scroll.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="icon" href="asset/icon.png">
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDCdO_PElJabj8bV2HhEjNZkJ9KeLQShPE",
+            authDomain: "edeltech-b5870.firebaseapp.com",
+            databaseURL: "https://edeltech-b5870.firebaseio.com",
+            projectId: "edeltech-b5870",
+            storageBucket: "edeltech-b5870.appspot.com",
+            messagingSenderId: "931436961658",
+            appId: "1:931436961658:web:5f7b0a8cf081ab9baf40c3",
+            measurementId: "G-R7BFYVMQ9P"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        firebase.analytics();
+    </script>
+</head>
+<body style="background-color: black ">
+<script>
+    AOS.init();
+</script>
+<nav style="background-color: black !important;" id="bar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="asset/icon.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Application
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="powershell.html">Powershell Generator</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item"
+                       href="https://docs.google.com/forms/d/e/1FAIpQLSf-XLPoT8Mv5w_Yq2fsrwtBiRLjYhu_shiAFiAG0p97ywkg3w/viewform?usp=sf_link">Commentaire</a>
+                </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+            <p  id="usersp" ></p>
+            <div style="display: none" id="connect">
+                <a class="btn btn-outline-info my-2 my-sm-0"  href="login.html">S'inscrire</a>
+                <a style="margin-left: 10px;" class="btn btn-outline-success my-2 my-sm-0" href="login.html">Se Connecter</a>
+            </div>
+
+            <!--<a class="btn btn-outline-danger my-2 my-sm-0"  href="login.html">Se Déconnecter</a>-->
+
+
+
+
+
+
+        </form>
+    </div>
+</nav>
+<div class="content">
+
+    <section align="center" style="background-color: #0c0c0c">
+        <h1 style="padding-top: 100px;" align="center">Powershell Generator </h1>
+        <img data-aos="fade-up"
+             style=" font-size: 3.9rem; padding-top: 50px; padding-bottom: 200px; width: 100%; z-index: 2;"
+             align="center"
+             src="asset/powershell_font_open.jpg">
+
+
+        <div class="wrapper1">
+            <div data-aos="fade-up"><img style="margin-left: 10px; margin-left: 50px;" align="center"
+                                         src="asset/treminal_top.jpg"></div>
+            <div data-aos="fade-up"><h2>ça c'était avant</h2></div>
+
+        </div>
+        <div style="background-color: #0c0c0c;     height: 400px;">
+
+        </div>
+        <div class="wrapper1" data-aos="fade-up">
+            <div data-aos="fade-up"><img style="margin-left: 10px; margin-left: 50px;" align="center"
+                                         src="asset/psg.jpg"></div>
+
+
+            <div data-aos="fade-up"><h2 style="margin-left: 20px;">mais plus maintenant</h2></div>
+
+        </div>
+        <div style="background-color: #0c0c0c;     height: 200px;">
+
+        </div>
+        <div align="center" style="padding-bottom: 50px;">
+            <p data-aos="fade-up" style="font-size: 22px;  width: 500px;margin-bottom: 0px; width: 500px;">Avec
+                Powershell Generator vous pouvez génerer des scripts simplement en glissant des blocs et en remplissant
+                les champs du formulaire. Avec la nouvelle version vous pouvez même créer des blocs personnalisés, créer
+                des projets avec plusieurs fichiers et même exporter tout le projet en un seul fichier. <br>
+                <button style="margin-top: 10px !important;" align="center" class="btn btn-outline-success my-2 my-sm-0"
+                        type="submit" disabled>Télécharger
+                    <span class="badge badge-pill badge-danger">Applicaton pas encore disponible</span></button>
+            </p>
+        </div>
+
+
+        <div style="background-color: #0c0c0c;     height: 200px;">
+
+        </div>
+        <footer class="pb-4 bg-primary-3 text-light" id="footer">
+            <div class="container">
+
+                <div class="row mb-5">
+
+                    <div class="col-6 col-lg">
+
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1"
+                                     class="injected-svg icon" data-src="assets/img/icons/theme/communication/mail.svg">
+                                    <title>Icon For Mail</title>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect opacity="0" x="0" y="0" width="24" height="24"></rect>
+                                        <path d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
+                                              fill="#000000"></path>
+                                    </g>
+                                </svg>
+                                <div class="ml-3">
+                                    <h5>Contact</h5>
+                                </div>
+                            </li>
+
+                            <li class="mb-3 d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1"
+                                     class="injected-svg icon" data-src="assets/img/icons/theme/communication/mail.svg">
+                                    <title>Icon For Mail</title>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect opacity="0" x="0" y="0" width="24" height="24"></rect>
+                                        <path d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
+                                              fill="#000000"></path>
+                                    </g>
+                                </svg>
+                                <div class="ml-3">
+                                    <a style="    color: #17a2b8;" href="mailto:edeltech@outlook.fr">edeltech@outlook.fr</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5 col-xl-4 mt-3 mt-lg-0">
+                        <h5>S'inscrire</h5>
+                        <p>En vous inscrivant vous pourrez profiter pleinement de nos services.</p>
+                        <form  data-form-email="" novalidate="">
+                            <div class="form-row">
+
+
+
+                                <a class="btn btn-info btn-loading btn-block" href="login.html" >
+
+
+                                    <span>S'incrire</span>
+                                </a>
+
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col col-md-auto text-center">
+                        <small class="text-muted">&copy;2020 edeltech
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </section>
+
+
+
+</div>
+<script>
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            console.log(firebase.auth().currentUser.displayName + " is connected with firebase auth");
+            document.getElementById("usersp").innerHTML = firebase.auth().currentUser.displayName;
+            document.getElementById("connect").style = "display: none;"
+
+        } else {
+            document.getElementById("connect").style = "display: block;"
+            document.getElementById("usersp").innerHTML = ""
+        }
+    });
+
+</script>
+</body>
+</html>
